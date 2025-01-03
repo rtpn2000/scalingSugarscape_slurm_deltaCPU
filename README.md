@@ -21,7 +21,7 @@ TkInter
 #### Usage:  
 make test
 
-## Note:  
+#### Note:  
 This implementation is done with headless mode == true (which disables GUI).
 Make sure to change the account name from "bcob-delta-cpu" to your account name in slurmgen.sh before executing. 
 You can find your account name by running 'accounts' in your terminal.
