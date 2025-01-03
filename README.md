@@ -1,36 +1,44 @@
-SUGARSCAPE
+# Scaling Sugarscape using SLURM on Delta CPU.  
 
-Python implementation of the Sugarscape agent-based computational model introduced in Growing Artificial Societies (1996) by Epstein and Axtell.
+#### Project Overview:  
+Python implementation of the Sugarscape agent-based computational model introduced in Growing Artificial Societies (1996) by Epstein and Axtell.  
+Inspired by previous work from Herve Lange (https://github.com/langerv/sugarscape) and Joshua Palicka (https://github.com/joshuapalicka/sugarscape).  
+This project was completed as part of the course CPSC 5520 - Distributed Systems. 
 
-Inspired by previous work from Herve Lange (https://github.com/langerv/sugarscape) and Joshua Palicka (https://github.com/joshuapalicka/sugarscape).
+#### Contributors:  
+This project was a collaborative effort with contributions from multiple team members led by me.  
 
-Requirements:
+#### Team Members:  
+Krishna Koushik Parimi  
+Navven Kumar Pallanti
+
+#### Requirements:  
 Bash
 Python 3
-SLURM (for executing the simulation on a NCSA Delta CPU)
+SLURM (for executing the simulation on an NCSA Delta CPU)
 TkInter
 
-Usage:
+#### Usage:  
 make test
 
-Note:
-This implentation is done with headlessmode == true (which disables GUI).
+## Note:  
+This implementation is done with headless mode == true (which disables GUI).
 Make sure to change the account name from "bcob-delta-cpu" to your account name in slurmgen.sh before executing. 
 You can find your account name by running 'accounts' in your terminal.
 #SBATCH --account=bcob-delta-cpu
 
-Makefile Options:
+#### Makefile Options:  
 make clean
     Clean up working files and logs created by the software.
     Note: This will remove any JSON files created by the other make options.
 
 make data
-    Run a number of random seeds comparing selected decision models.
+    Run several random seeds comparing selected decision models.
     Note: Results will be saved in the data subdirectory.
 
 make plots
     Generate graph plots from any JSON files in the data subdirectory.
-    Note: Plots are dependent on a dataset existing and will create it if necessary.
+    Note: Plots are dependent on a dataset existing and will be created if necessary.
 
 make seeds
     Generate a set of random seeds comparing selected decision models.
@@ -38,12 +46,12 @@ make seeds
 
 make setup
     Change preconfigured settings for Bash and Python aliases.
-    Note: Changed settings may alter Makefile and configuration file in-place.
+    Note: Changed settings may alter the Makefile and configuration file in place.
 
 make test
     By running this simulation it will execute the slurmgen.sh script with config.json as the configuration file and stores a local log in log.json format.
 
-Preconfigured Examples from Growing Artificial Societies:
+#### Preconfigured Examples from Growing Artificial Societies:  
 A selection of examples can be found in the examples directory.
 Each demonstrates a concept from the book Growing Artificial Societies.
 Examples are included to demonstrate adherence to or deviation from the source material.
@@ -102,7 +110,7 @@ lending_basic.json:
 disease_basic.json:
     Agent sugar and spice collection with disease and constant sugar and spice growback (pgs. 141-147).
 
-JSON Configuration File Options:
+#### JSON Configuration File Options:  
 The simulation provides a default set of options in a dictionary in the sugarscape.py file.
 A JSON configuration file can be passed to the simulation, overwriting the default configuration, with the --conf option.
 
@@ -116,7 +124,7 @@ agentBaseInterestRate: [float, float]
     Default: [0.0, 0.0]
 
 agentDecisionModel: string
-    Set the agent decision model for different decisionmaking.
+    Set the agent decision model for different decision-making.
     Options: "altruisticHalfLookaheadBinary", "altruisticHalfLookaheadTop", "benthamHalfLookaheadBinary", "benthamHalfLookaheadTop", "benthamNoLookaheadBinary", "benthamNoLookaheadTop", "egoisticHalfLookaheadBinary", "egoisticHalfLookaheadTop", "none", "rawSugarscape"
     Default: "none"
 
@@ -142,17 +150,17 @@ agentFertilityFactor: [float, float]
     Default: [0, 0]
 
 agentImmuneSystemLength: int
-    Set the length of agent immune system tags to integer length.
+    Set the length of agent immune system tags to an integer length.
     Default: 0
 
 agentInheritancePolicy: string
-    Set wealth inheritance policy on agent death to given string.
+    Set wealth inheritance policy on agent death to the given string.
     Options: "children". "daughters", "friends", "none", "sons"
     Default: "none"
 
 agentLendingFactor: [float, float]
     Set lending aggressiveness of agent.
-    The more aggressive an agent is to lend, the higher the offered interest rate will be.
+    The more aggressive an agent is in lending, the higher the offered interest rate will be.
     Default: [0, 0]
 
 agentLoanDuration: [int, int]
@@ -181,11 +189,11 @@ agentMaxAge: [int, int]
     Default: [-1, -1]
 
 agentMaxFriends: [int, int]
-    Set maximum number of friends tracked by an agent.
+    Set a maximum number of friends tracked by an agent.
     Default: [0, 0]
 
 agentMovement: [int, int]
-    Set maximum movement distance per timestep for agent.
+    Set maximum movement distance per timestep for an agent.
     Default: [1, 6]
 
 agentMovementMode: string
@@ -194,7 +202,7 @@ agentMovementMode: string
     Default: "cardinal"
 
 agentReplacements: int
-    Set maximum number of agents to replace in environment on agent death.
+    Set the maximum number of agents to replace in the environment on agent death.
     Default: 0
 
 agentSelfishnessFactor: [float, float]
@@ -214,8 +222,8 @@ agentStartingSugar: [float, float]
     Set agent starting sugar hold.
     Default: [10, 40]
 
-agentStartingQuadrants: [int (,int, int, int)]
-    Set quadrants agents will initially be placed.
+agentStartingQuadrants: [int (, int, int, int)]
+    Set quadrant agents will initially be placed.
     Quadrant 1 begins in the top left.
     Quadrant 2 begins in the top right.
     Quadrant 3 begins in the bottom right.
@@ -236,11 +244,11 @@ agentTradeFactor: [float, float]
     Default: [0, 0]
 
 agentUniversalSpice: [float, float]
-    Set the amount agents recieve for universal basic spice income.
+    Set the amount agents receive for universal basic spice income.
     Default: [0, 0]
 
 agentUniversalSugar: [float, float]
-    Set the amount agents recieve for universal basic sugar income. 
+    Set the amount agents receive for universal basic sugar income. 
     Default: [0, 0]
 
 agentVision: [int, int]
@@ -256,7 +264,7 @@ debugMode: [string, ...]
     Set the debug printing mode.
     Options: "agent", "all", "cell", "disease", "environment", "ethics", "none",  "sugarscape"
     Default: "none"
-    Note: Some options may cause no output in current impementation.
+    Note: Some options may cause no output in the current implementation.
           Can select multiple debug modes simultaneously.
 
 diseaseAggressionPenalty: [float, float]
@@ -308,7 +316,7 @@ environmentMaxSpice: int
     Default: 0
 
 environmentMaxSugar: int
-    Set the maximum amount of sugar at any cell in the environment.
+    Set the maximum amount of sugar in any cell in the environment.
     This amount will only be present at sugar peaks.
     Default: 4
 
@@ -321,7 +329,7 @@ environmentPollutionDiffusionDelay: int
     Default: 0
 
 environmentSeasonalGrowbackDelay: int
-    Set the delay interval in timesteps when resources are regrown when cell is in a dry season.
+    Set the delay interval in timesteps when resources are regrown when the cell is in a dry season.
     Default: 0
 
 environmentSeasonInterval: int
@@ -330,37 +338,37 @@ environmentSeasonInterval: int
     Default: 0
 
 environmentSpiceConsumptionPollutionFactor: float
-    Set the amount of pollution generated by an agent consuming spice at a cell.
+    Set the amount of pollution generated by an agent consuming spice in a cell.
     Default: 0
 
 environmentSpiceProductionPollutionFactor: float
-    Set the amount of pollution generated by an agent collecting spice at a cell.
+    Set the amount of pollution generated by an agent collecting spice in a cell.
     Default: 0
 
 environmentSpiceRegrowRate: int
     Set the amount of spice regrown across the environment per timestep.
-    Each cell can only grow up to their maximum spice value.
+    Each cell can only grow up to its maximum spice value.
     Default: 0
 
 environmentSugarConsumptionPollutionFactor: float
-    Set the amount of pollution generated by an agent consuming sugar at a cell.
+    Set the amount of pollution generated by an agent consuming sugar in a cell.
     Default: 0
 
 environmentSugarProductionPollutionFactor: float
-    Set the amount of pollution generated by an agent collecting sugar at a cell.
+    Set the amount of pollution generated by an agent collecting sugar in a cell.
     Default: 0
 
 environmentSugarRegrowRate: int
     Set the amount of sugar regrown across the environment per timestep.
-    Each cell can only grow up to their maximum sugar value.
+    Each cell can only grow up to its maximum sugar value.
     Default: 1
 
 environmentUniversalSpiceIncomeInterval: int
-    Set the interval in timesteps when environment produces universal basic spice income.
+    Set the interval in timesteps when the environment produces universal basic spice income.
     Default: 0
 
 environmentUniversalSugarIncomeInterval: int
-    Set the interval in timesteps when environment produces universal basic sugar income.
+    Set the interval in timesteps when the environment produces universal basic sugar income.
     Default: 0
 
 environmentWidth: int
@@ -372,12 +380,12 @@ headlessMode: bool
     Default: false
 
 interfaceHeight: int
-    Set number of pixels for GUI height.
+    Set the number of pixels for GUI height.
     Note: Values below zero will cause the interface to fit to 1/2 total display height.
     Default: 1000
 
 interfaceWidth: int
-    Set number of pixels for GUI width.
+    Set the number of pixels for GUI width.
     Default: 900
     Note: Values below zero will cause the interface to fit to 1/2 total display width.
 
@@ -391,7 +399,7 @@ profileMode: bool
 
 seed: int
     Set the seed value for the random number generator.
-    Note: Value of -1 causes simulation to generate a random seed.
+    Note: A value of -1 causes the simulation to generate a random seed.
     Note: Reusing a seed ensures deterministic simulation outcomes.
     Default: -1
 
@@ -405,7 +413,7 @@ startingDiseases: int
 
 timesteps: int
     Set the number of timesteps the simulation runs.
-    Note: Value of -1 causes simulation to run forever or until there are no more living agents.
+    Note: A value of -1 causes the simulation to run forever or until there are no more living agents.
     Default: 200
 
 Other JSON Configurable Options:
