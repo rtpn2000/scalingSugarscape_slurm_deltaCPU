@@ -6,7 +6,7 @@ Inspired by previous work from Herve Lange (https://github.com/langerv/sugarscap
 This project was completed as part of the course CPSC 5520 - Distributed Systems. 
 
 #### Contributors:  
-This project was a collaborative effort with contributions from multiple team members led by me.  
+This project was a collaborative effort with contributions from multiple team members.  
 
 #### Team Members:  
 Krishna Koushik Parimi  
